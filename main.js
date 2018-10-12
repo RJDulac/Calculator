@@ -35,6 +35,11 @@ function divNum() {
         return a / b;
     });
 }
+function modNum() {
+    callOut(num1.value,num2.value,"%",function(a,b) {
+        return a % b;
+    });
+}
 
 function clearValues() {
     num1.value = "";
