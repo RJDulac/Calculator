@@ -5,32 +5,38 @@ var num2 = document.getElementById("num2");
 
 
 
+function callOut(a,b,c,call){
+    var result = call(Number(a),Number(b));
+    output.innerHTML += "<p>" + a + " " + c + " " + b + " = " + result + "</p>";
 
+}
 
 function addNum() {
-    var a = Number(num1.value);
-    var b = Number(num2.value);
-    var total = a + b;
-    output.innerHTML += "<p>" + a + " + " + b + " = " + total + "</p>";
+    callOut(num1.value,num2.value,"+", function(a,b){
+        return a + b;
+    })
 }
 
 function subNum() {
-    var a = Number(num1.value);
-    var b = Number(num2.value);
-    var total = a - b;
-    output.innerHTML += "<p>" + a + " - " + b + " = " + total + "</p>";
+    callOut(num1.value,num2.value,"-", function(a,b) {
+        return a - b;
+    })
 }
 
 function multNum() {
-    var a = Number(num1.value);
-    var b = Number(num2.value);
-    var total = a * b;
-    output.innerHTML += "<p>" + a + " * " + b + " = " + total + "</p>";
+    callOut(num1.value,num2.value,"*", function(a,b) {
+        return a * b;
+    })
 }
 
 function divNum() {
-    var a = Number(num1.value);
-    var b = Number(num2.value);
-    var total = a / b;
-    output.innerHTML += "<p>" + a + " / " + b + " = " + total + "</p>";
+    callOut(num1.value,num2.value,"/",function(a,b) {
+        return a / b;
+    })
+}
+
+function clearAll() {
+    output.innerHTML = "";
+    num1.value = "";
+    num2.value = "";
 }
