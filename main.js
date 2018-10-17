@@ -1,3 +1,5 @@
+//es5 - give nice gui later
+
 var output = document.getElementById("output");
 
 var num1 = document.getElementById("num1");
@@ -9,7 +11,6 @@ function callOut(a,b,c,call){
     clearValues();
     var result = call(Number(a),Number(b));
     output.innerHTML += "<p>" + a + " " + c + " " + b + " = " + result + "</p>";
-
 }
 
 function addNum() {
@@ -48,4 +49,9 @@ function clearValues() {
 function clearAll() {
     clearValues();
     output.innerHTML = "";
+}
+
+//block user from using non-number characters
+function numberCheck() {
+    return !isNaN(event.key);
 }
